@@ -1,0 +1,15 @@
+set fdbeads [atomselect top "atomicnumber 1"]
+
+set mygofr [measure gofr $fdbeads $fdbeads usepbc 1 delta 0.5 rmax 170 first 1001 step 1]
+
+set fp [open "gofr_FD.txt" "w+"]
+
+puts $fp [lindex $mygofr 0]
+puts $fp [lindex $mygofr 1]
+puts $fp [lindex $mygofr 2]
+
+
+close $fp
+
+exit
+
